@@ -1,5 +1,13 @@
 <div align="center" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 3rem 2rem; border-radius: 16px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
 
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/ai-collab-optimizer?style=social)](https://github.com/yourusername/ai-collab-optimizer/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/yourusername/ai-collab-optimizer?style=social)](https://github.com/yourusername/ai-collab-optimizer/network/members)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
+---
+
 # 🚀 AI Collaboration Optimizer
 
 [![Python](https://img.shields.io/badge/Python-3.8+-%233776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=2c3e50)](https://www.python.org/)
@@ -80,7 +88,81 @@
 
 </div>
 
-## 🛠️ Core Functionality
+## 🚀 Features
+
+### 📊 Interactive Graph Visualization
+- Dynamic task dependency mapping
+- Drag-and-drop interface
+- Zoom and pan functionality
+- Hierarchical and force-directed layouts
+- Real-time updates
+
+### 🚩 Critical Path Analysis
+- Automatic critical path identification
+- Interactive task highlighting
+- Visual indicators for critical tasks
+- Real-time duration calculations
+- Bottleneck detection
+
+### 🤖 AI-Powered Optimization
+- Smart workflow suggestions
+- Resource allocation recommendations
+- Task prioritization
+- Automated risk assessment
+- Workload balancing
+
+### 📅 Gantt Chart Generation
+- Interactive timeline view
+- Task duration visualization
+- Resource allocation tracking
+- Export to multiple formats (PNG, JPG, PDF)
+- Customizable appearance
+
+## 🛠️ Installation
+
+### Prerequisites
+- Python 3.8 or higher
+- pip (Python package manager)
+- Google Gemini API key (for AI features)
+
+### Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/ai-collab-optimizer.git
+   cd ai-collab-optimizer
+   ```
+
+2. **Create and activate a virtual environment**
+   ```bash
+   # On Windows
+   python -m venv venv
+   .\venv\Scripts\activate
+   
+   # On macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configure environment variables**
+   - Copy `.env.example` to `.env`
+   - Add your Google Gemini API key:
+     ```
+     GEMINI_API_KEY=your_api_key_here
+     ```
+
+5. **Run the application**
+   ```bash
+   python app.py
+   ```
+   - Open your browser and navigate to `http://localhost:5000`
+
+## 🎯 Core Functionality
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
 
@@ -90,14 +172,24 @@
 - Interactive graph-based dependency mapping
 - Drag-and-drop task management
 - Zoom and pan functionality
+- Hierarchical and force-directed layouts
+- Dynamic node highlighting and selection
 
 </div>
 
 <div style="background: linear-gradient(145deg, #f0fdf4, #dcfce7); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #10b981;">
 
+### 🚩 Critical Path Analysis
+- Interactive critical path visualization
+- Click-to-highlight tasks in the graph
+- Dynamic task highlighting on hover
+- Visual indicators for critical tasks
+- Real-time duration calculations
+
 ### 🤖 AI-Powered Insights
 - Smart workflow optimization
 - Automatic bottleneck detection
+- AI-generated recommendations for task optimization
 - Workload balancing
 
 </div>
@@ -378,7 +470,66 @@ ai_collab_optimizer/
    python app.py
    ```
 
+## 🛠️ API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/analyze` | POST | Analyze workflow from CSV |
+| `/api/graph` | POST | Update graph structure |
+| `/api/gantt` | GET | Get Gantt chart data |
+| `/api/export/gantt` | GET | Export Gantt chart |
+| `/api/ai/suggest` | POST | Get AI suggestions |
+
+### Example Request: Analyze Workflow
+```bash
+curl -X POST -F 'file=@tasks.csv' http://localhost:5000/analyze
+```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**1. Missing Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**2. API Key Not Found**
+- Ensure `.env` file exists with your API key
+- Restart the application after updating environment variables
+
+**3. Port Already in Use**
+```bash
+# Find and kill the process
+lsof -i :5000
+kill -9 <PID>
+```
+
 ## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Code Style
+- Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) for Python code
+- Use 4 spaces for indentation
+- Write docstrings for all functions and classes
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Flask](https://flask.palletsprojects.com/)
+- Visualization powered by [vis.js](https://visjs.org/)
+- AI capabilities provided by [Google Gemini](https://ai.google/)
+- Icons by [Bootstrap Icons](https://icons.getbootstrap.com/)
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 

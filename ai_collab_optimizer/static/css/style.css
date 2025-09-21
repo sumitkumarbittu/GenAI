@@ -249,6 +249,10 @@ a:hover {
     overflow: hidden;
 }
 
+.sidebar-header i {
+    color: #3498db;
+}
+
 .sidebar-header::before {
     content: '';
     position: absolute;
@@ -290,6 +294,23 @@ a:hover {
     color: var(--gray-500);
     margin-bottom: 1rem;
     padding: 0 0.5rem;
+}
+
+/* Graph Controls */
+.graph-controls {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    padding: 0.5rem 0;
+    position: relative;
+    z-index: 5;
+}
+
+.graph-controls .form-range {
+    max-width: 200px;
+}
+
+.graph-controls .form-select {
+    max-width: 150px;
 }
 
 /* Main Content */
@@ -383,7 +404,7 @@ a:hover {
         --gray-800: #f3f4f6;
         --gray-900: #ffffff;
         
-        --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+        --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
     }
     
     /* Base styles */

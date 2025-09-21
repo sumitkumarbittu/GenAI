@@ -1,0 +1,266 @@
+/* Critical Path Styles */
+.critical-path {
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.critical-path .card {
+    border-left: 3px solid #dc3545;
+    margin-bottom: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.critical-path .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(220, 53, 69, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.critical-path .card.highlighted {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+    z-index: 10;
+}
+
+.critical-path .card.highlighted::before {
+    opacity: 1;
+}
+
+.critical-path .card-header {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+    border-bottom: 1px solid rgba(220, 53, 69, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.critical-path .card-header:hover {
+    background-color: rgba(220, 53, 69, 0.15) !important;
+}
+
+.path-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.path-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(220, 53, 69, 0.2);
+    z-index: 1;
+}
+
+.path-task {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #fff;
+    border-left: 3px solid #dc3545;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    margin-left: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.path-task::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 24px;
+    width: 20px;
+    height: 2px;
+    background: #dc3545;
+}
+
+.path-task::after {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 19px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #dc3545;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #dc3545;
+    transition: all 0.3s ease;
+}
+
+.path-task:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff8f8;
+}
+
+.path-task.highlighted {
+    background-color: #fff0f0;
+    border-left-color: #ff6b6b;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+}
+
+.path-task.highlighted::after {
+    background: #fff;
+    transform: scale(1.3);
+    box-shadow: 0 0 0 3px #dc3545;
+}
+
+.path-task .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.path-task .task-name {
+    font-weight: 600;
+    color: #212529;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.path-task .task-name i {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.path-task .task-details {
+    font-size: 0.85rem;
+    color: #6c757d;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.path-task .task-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.path-task .task-meta i {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+/* Animation for highlighting */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+.path-task.highlighted {
+    animation: pulse 1.5s infinite;
+}
+
+/* Bottlenecks Styles */
+.bottlenecks .card {
+    border-left: 3px solid #ffc107;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.bottlenecks .card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.bottlenecks .card-header {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+/* Dark mode support */
+[data-bs-theme="dark"] .path-task {
+    background-color: #2c3034;
+    border-left-color: #dc3545;
+}
+
+[data-bs-theme="dark"] .path-task .task-name {
+    color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .path-task .task-details {
+    color: #adb5bd;
+}
+
+[data-bs-theme="dark"] .bottlenecks .card {
+    background-color: #2c3034;
+    border-left-color: #ffc107;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .path-timeline {
+        gap: 0.5rem;
+    }
+    
+    .path-task {
+        padding: 0.5rem;
+    }
+    
+    .path-task .task-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .path-task .badge {
+        align-self: flex-start;
+    }
+}
+
+/* Animation for new items */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.path-task, .bottlenecks .card {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Badge styling */
+.badge {
+    font-weight: 500;
+    padding: 0.35em 0.65em;
+}
+
+.bg-warning.text-dark {
+    color: #212529 !important;
+}
+
+/* Ensure proper spacing */
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}

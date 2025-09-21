@@ -1,0 +1,148 @@
+/* Critical Path Styles */
+.critical-path {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.critical-path h5 {
+    color: #0d6efd;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.path-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.path-item {
+    background: #0d6efd;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.path-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.path-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: #fff;
+}
+
+.path-item:hover::before {
+    opacity: 1;
+}
+
+.path-item.highlighted {
+    background: #ffc107;
+    color: #212529;
+    border-color: #ffc107;
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.path-item.highlighted .task-duration {
+    background: rgba(0, 0, 0, 0.1);
+    color: #212529;
+}
+
+/* Highlighted task in the task list */
+.task-item.highlighted {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding-left: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Animation for highlighting */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(13, 110, 253, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
+}
+
+.path-item.highlighted {
+    animation: pulse 1.5s infinite;
+}
+
+.path-item .task-id {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.path-item .task-name {
+    font-size: 0.9em;
+    text-align: center;
+    margin: 3px 0;
+}
+
+.path-item .task-duration {
+    font-size: 0.8em;
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-top: 3px;
+}
+
+.path-arrow {
+    color: #6c757d;
+    font-size: 1.5em;
+    padding: 0 5px;
+}
+
+.total-duration {
+    font-weight: 600;
+    color: #198754;
+    text-align: right;
+    font-size: 1.1em;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .path-items {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .path-arrow {
+        transform: rotate(90deg);
+        margin: 5px 0 5px 15px;
+    }
+    
+    .path-item {
+        min-width: 90%;
+        margin-bottom: 5px;
+    }
+}
